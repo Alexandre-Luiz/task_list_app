@@ -1,0 +1,18 @@
+<%# 'Isto é um comentário' %>
+
+<%# 'COM o igual eu vou rodar o código ruby e vou
+mostrar nada na página' %>
+<%#= 1+1 %>
+
+<%# 'SEM o igual eu só vou rodar o código ruby e NÃO vou
+mostrar nada na página' %>
+<%# 2+2 %>
+
+<h1> Bem-Vindo ao Task List! </h1>
+<h3> Sua lista de tarefas: </h3>
+
+<% @tasks.each do |task|%>
+    <%= task.description %>
+    <%= link_to 'Editar', edit_task_path(task)%>
+    <%= link_to 'Deletar', task_path(task), method: :delete, data: {confirm: 'Quer apagar esta tarefa?'}%>
+<% end%>
